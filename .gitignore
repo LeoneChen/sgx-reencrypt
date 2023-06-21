@@ -34,3 +34,6 @@ test-app/reencrypt_u.[hc]
 
 # Private key
 *.pem
+test-app
+Enclave.edl.json
+vtune
