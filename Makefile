@@ -112,7 +112,7 @@ test-app/reencrypt_u.c: reencrypt/reencrypt.edl
 		--untrusted-dir test-app --search-path $(SGX_SDK)/include --dump-parse Enclave.edl.json
 	@echo "sgx_edger8r => $@"
 
-test-app/reencrypt_u.o: test-app/reencrypt_u.c
+test-app/reencrypt_u.o: test-app/reencrypt_u.c reencrypt.so
 	@$(CC) $(APP_C_FLAGS) -c $< -o $@ \
 	-flegacy-pass-manager \
 	-Xclang -load -Xclang $(SGX_SDK)/lib64/libSGXFuzzerPass.so
@@ -173,3 +173,4 @@ clean:
 	rm -f reencrypt/tweetnacl/*.o
 	rm -f test-app/*.o
 	rm -f test-app/tweetnacl/*.o
+	rm -f InstrumentStatistics.json

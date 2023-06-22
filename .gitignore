@@ -37,3 +37,4 @@ test-app/reencrypt_u.[hc]
 test-app
 Enclave.edl.json
 vtune
+InstrumentStatistics.json
