@@ -201,7 +201,7 @@ err:
 	return 1;
 }
 
-int main(int argc, char* argv[])
+int __hidden_main(int argc, char* argv[])
 {
 	context ctx;
 	// key used to encrypt the test payload
