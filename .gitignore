@@ -34,3 +34,5 @@ test-app/reencrypt_u.[hc]
 
 # Private key
 *.pem
+ghidra
+bin

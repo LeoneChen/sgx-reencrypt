@@ -1,3 +1,4 @@
+#include "kafl_hc.h"
 #include "reencrypt_t.h"
 #include "reencrypt.h"
 #include "serialize.h"
@@ -31,6 +32,7 @@ set_keypair(unsigned char pk[crypto_box_PUBLICKEYBYTES],
 }
 
 int generate_keypair(uint8_t *public_key) {
+    LogEnter(__func__);
     unsigned char pk[crypto_box_PUBLICKEYBYTES];
     unsigned char sk[crypto_box_SECRETKEYBYTES];
     reencrypt_status ret;
@@ -50,6 +52,7 @@ int generate_keypair(uint8_t *public_key) {
 }
 
 int seal_keypair() {
+    LogEnter(__func__);
     uint8_t *blob = NULL;
     size_t bloblen;
     reencrypt_status ret;
@@ -78,6 +81,7 @@ err:
 }
 
 int unseal_keypair(uint8_t *public_key) {
+    LogEnter(__func__);
     uint8_t *blob = NULL, *pk = NULL, *sk = NULL;
     size_t bloblen, pklen, sklen;
     reencrypt_status ret;
@@ -116,6 +120,7 @@ err:
 
 int register_key(client_id *clid, uint8_t *request, size_t requestlen,
                  uint8_t *response, size_t *responselen) {
+    LogEnter(__func__);
     uint8_t *s_key = NULL;      // serialized key
     uint8_t *c_response = NULL; // boxed response
     size_t s_keylen;
@@ -186,6 +191,7 @@ err:
 /* ENTRY-POINT */
 int reencrypt(client_id *clid, uint8_t *request, size_t requestlen,
               uint8_t *response, size_t *responselen) {
+    LogEnter(__func__);
     key_id keyIDin, keyIDout;
     struct keydata_t *keyin = NULL, *keyout = NULL;
     uint8_t *p_request = NULL;

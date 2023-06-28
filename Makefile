@@ -25,7 +25,7 @@ ENCLAVE_C_FLAGS := $(ENCLAVE_INC) -nostdinc -fvisibility=hidden \
 ENCLAVE_LINK_FLAGS := -Wl,--no-undefined -L$(SGX_LIB_PATH) \
 	-nostdlib -nodefaultlibs -nostartfiles \
 	-Wl,--whole-archive -l$(TRTS_LIB) -Wl,--no-whole-archive \
-	-Wl,--start-group -lsgx_tstdc -lsgx_tstdcxx -l$(CRYPTO_LIB) \
+	-Wl,--start-group -lsgx_tstdc -lsgx_tcxx -l$(CRYPTO_LIB) \
 	-l$(SERVICE_LIB) -Wl,--end-group  \
 	-Wl,-Bstatic -Wl,-Bsymbolic -Wl,--no-undefined \
 	-Wl,-pie,-eenclave_entry -Wl,--export-dynamic \
